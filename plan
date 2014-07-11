@@ -1,0 +1,166 @@
+[tests]
+script.gridview.GalleryTest.testGridViewSwitchtoAlbumsView = 1
+script.gridview.GalleryTest.testSearchKeywordsInGridView = 1
+script.gridview.GalleryTest.testPlaySlideshowWithCineEffect = 1
+script.gridview.GalleryTest.testPlaySlideshowWithDissolve = 1
+script.gridview.GalleryTest.testPlaySlideshowWithFlash = 1
+script.gridview.GalleryTest.testShareIconAvilibaleInGridView = 1
+script.gridview.GalleryTest.testSharePictureInGridViewWithBluetooth = 1
+script.gridview.GalleryTest.testSharePictureInGridViewWithPicasa = 1
+script.gridview.GalleryTest.testSharePictureInGridViewWithOrkut = 1
+script.gridview.GalleryTest.testSharePictureInGridViewWithGmail = 1
+script.gridview.GalleryTest.testSharePictureInGridViewWithFacebook = 1
+script.gridview.GalleryTest.testSharePictureInGridViewWithYouTube = 1
+script.gridview.GalleryTest.testSharePictureInGridViewWithDrive = 1
+script.gridview.GalleryTest.testDeleteOnePictureInGridView = 1
+script.gridview.GalleryTest.testDeleteMultiplePictureInGridView = 1
+script.gridview.GalleryTest.testEditInGridView = 1
+script.gridview.GalleryTest.testRotateLeftInGridView = 1
+script.gridview.GalleryTest.testRotateRightInGridView = 1
+script.gridview.GalleryTest.testCropInGridView = 1
+script.gridview.GalleryTest.testSetPictureAsContactPhotoInGridView = 1
+script.gridview.GalleryTest.testSetPictureAsWallpaperInGridView = 1
+script.gridview.GalleryTest.testCheckDetailsInGridView = 1
+script.gridview.GalleryTest.testAddKeywordsInGridView = 1
+script.gridview.GalleryTest.testAnimateInGridView = 1
+script.gridview.GalleryTest.testRotateAllInGridView = 1
+script.gridview.GalleryTest.testAddKeywordsToAllInGridView = 1
+script.gridview.GalleryTest.testSlideshowAllInGridView = 1
+script.gridview.GalleryTest.testAnimateToVideoAllInGridView = 1
+script.gridview.GalleryTest.testAnimateToGIFAllInGridView = 1
+script.gridview.GalleryTest.testDeselectAllInGridView = 1
+
+script.FullView.GalleryTest.testSlidePictures = 1
+script.FullView.GalleryTest.testCheckShareListIcons = 1
+script.FullView.GalleryTest.testSharePictureToBlueTooth = 1
+script.FullView.GalleryTest.testSharePictureToPicasa = 1
+script.FullView.GalleryTest.testSharePictureToOrkut = 1
+script.FullView.GalleryTest.testSharePictureTowifidirect = 1
+script.FullView.GalleryTest.testSharePictureToGmail = 1
+script.FullView.GalleryTest.testSharePictureToDrive = 1
+script.FullView.GalleryTest.testSharePictureToFacebook = 1
+script.FullView.GalleryTest.testDeleteSingle = 1
+script.FullView.GalleryTest.testDeleteCancel = 1
+script.FullViewMenu.GalleryTest.testRotateLeftInSettingMenu = 1
+script.FullViewMenu.GalleryTest.testRotateRightInSettingMenu = 1
+script.FullViewMenu.GalleryTest.testCropThePhoto = 1
+script.FullViewMenu.GalleryTest.testCropCancel = 1
+script.FullViewMenu.GalleryTest.testCheckDetail = 1
+script.FullViewMenu.GalleryTest.testAddKeyWords = 1
+script.FullViewMenu.GalleryTest.testAddEvent = 1
+script.FullViewMenu.GalleryTest.testAddVenue = 1
+script.FullViewMenu.GalleryTest.testSetPicAsContact = 1
+script.FullViewMenu.GalleryTest.testSetPicAsWallpaper = 1
+script.FullViewMenu.GalleryTest.testSetPicAsWallpaperCancel = 1
+script.FullViewVideo.GalleryTest.testPlayVideoFile = 1
+script.FullViewVideo.GalleryTest.testShareVideoToYouTube = 1
+script.FullViewEdit.GalleryTest.testEnterEditScreen = 1
+
+script.FullViewEdit.GalleryTest.testEditWithToneNone = 1
+script.FullViewEdit.GalleryTest.testEditWithTonePunch = 1
+script.FullViewEdit.GalleryTest.testEditWithToneVintage = 1
+script.FullViewEdit.GalleryTest.testEditWithToneBW = 1
+script.FullViewEdit.GalleryTest.testEditWithToneBleach = 1
+script.FullViewEdit.GalleryTest.testEditWithToneInstant = 1
+script.FullViewEdit.GalleryTest.testEditWithToneLatte = 1
+script.FullViewEdit.GalleryTest.testEditWithToneBlue = 1
+script.FullViewEdit.GalleryTest.testEditWithToneLitho = 1
+script.FullViewEdit.GalleryTest.testEditWithToneXProcess = 1
+script.FullViewEdit.GalleryTest.testEditWithFrame1 = 1
+script.FullViewEdit.GalleryTest.testEditWithFrame2 = 1
+script.FullViewEdit.GalleryTest.testEditWithFrame3 = 1
+script.FullViewEdit.GalleryTest.testEditWithFrame4 = 1
+script.FullViewEdit.GalleryTest.testEditWithFrame5 = 1
+script.FullViewEdit.GalleryTest.testEditWithFrame6 = 1
+script.FullViewEdit.GalleryTest.testEditWithFrame7 = 1
+script.FullViewEdit.GalleryTest.testEnterCropScreen = 1
+script.FullViewEdit.GalleryTest.testEditWithCropStraighten = 1
+script.FullViewEdit.GalleryTest.testEditWithCropWith1ratio1 = 1
+script.FullViewEdit.GalleryTest.testEditWithCropWith1ratio2 = 1
+script.FullViewEdit.GalleryTest.testEditWithCropWith1ratio3 = 1
+script.FullViewEdit.GalleryTest.testEditWithCropWith1ratio4 = 1
+script.FullViewEdit.GalleryTest.testEditWithCropWith1ratio5 = 1
+script.FullViewEdit.GalleryTest.testEditWithCropWith1ratio6 = 1
+script.FullViewEdit.GalleryTest.testEditWithCropWith1ratio7 = 1
+script.FullViewEdit.GalleryTest.testEditWithCropWithRotate = 1
+script.FullViewEdit.GalleryTest.testEditWithCropWithMirror = 1
+script.FullViewEdit.GalleryTest.testEditWithBrightnessWithAutocolor = 1
+script.FullViewEdit.GalleryTest.testEditWithBrightnessWithExposure = 1
+script.FullViewEdit.GalleryTest.testEditWithBrightnessWithVignette = 1
+script.FullViewEdit.GalleryTest.testEditWithBrightnessWithContrast = 1
+script.FullViewEdit.GalleryTest.testEditWithBrightnessWithShadows = 1
+script.FullViewEdit.GalleryTest.testEditWithBrightnessWithVibrance = 1
+script.FullViewEdit.GalleryTest.testEditWithBrightnessWithSharpness = 1
+script.FullViewEdit.GalleryTest.testEditWithBrightnessWithCurves = 1
+script.FullViewEdit.GalleryTest.testEditWithBrightnessWithHue = 1
+script.FullViewEdit.GalleryTest.testEditWithBrightnessWithSaturation = 1
+script.FullViewEdit.GalleryTest.testEditWithBrightnessWithBWFilter = 1
+script.FullViewEdit.GalleryTest.testEditWithTonePunchRedoAndUndo = 1
+script.FullViewEdit.GalleryTest.testEditWithTonePunchReset = 1
+script.FullViewEdit.GalleryTest.testEditWithTonePunchShowHistory = 1
+
+script.burstview.GalleryTest.testSmallPlayBurstIconOfDissolve = 1
+script.burstview.GalleryTest.testSmallPlayBurstIconOfFlash = 1
+script.burstview.GalleryTest.testSmallPlayBurstIconOfPageflip = 1
+script.burstview.GalleryTest.testDeleteBurstPics = 1
+script.burstview.GalleryTest.testMenuKeyOfRotateLeft = 1
+script.burstview.GalleryTest.testMenuKeyOfRotateRight = 1
+script.burstview.GalleryTest.testMenuKeyOfSync = 1
+script.burstview.GalleryTest.testMenuKeyOfConvert = 1
+script.burstview.GalleryTest.testAddVenue = 1
+script.burstview.GalleryTest.testAddEvent = 1
+script.burstview.GalleryTest.testAddKeyword = 1
+script.burstview.GalleryTest.testCheckDetails = 1
+script.burstview.GalleryTest.testSmallPlayBurstIconOfDissolveInEditView = 1
+script.burstview.GalleryTest.testSmallPlayBurstIconOfFlashInEditView = 1
+script.burstview.GalleryTest.testSmallPlayBurstIconOfPageflipInEditView = 1
+script.burstview.GalleryTest.testRandomSelBusrtPicsExportToGalleryInEditView = 1
+script.burstview.GalleryTest.testSelectAllBusrtPicsExportToGalleryInEditView = 1
+script.burstview.GalleryTest.testRandomSelBusrtPicsDeleteMarkedInEditView = 1
+script.burstview.GalleryTest.testSelectAllBusrtPicsDeleteMarkedInEditView = 1
+script.burstview.GalleryTest.testRandomSelBusrtPicsDeleteUnMarkedInEditView = 1
+script.burstview.GalleryTest.testSelectAllBusrtPicsDeleteUnMarkedInEditView = 1
+script.burstview.GalleryTest.testPlayBurstPictures = 1
+script.burstview.GalleryTest.testDeleteBusrtPicsInEditView = 1
+script.burstview.GalleryTest.testRandomSelectBusrtPicsConvertInEditView = 1
+script.burstview.GalleryTest.testSelectAllBusrtPicsConvertInEditView = 1
+script.burstview.GalleryTest.testSelectDeselectBurstPicsInEditView = 1
+script.burstview.GalleryTest.testMarkUnmarkBurstPicsInEditView = 1
+script.burstview.GalleryTest.testTouchCheckMarkIcon = 1
+
+script.albumview.GalleryTest.testAlbumsViewSwitchtoPlaces = 1
+script.albumview.GalleryTest.testAlbumsViewSwitchtoEvents = 1
+script.albumview.GalleryTest.testAlbumsViewSwitchtoDates = 1
+script.albumview.GalleryTest.testAlbumsViewSwitchtoPeople = 1
+script.albumview.GalleryTest.testSwitchOtherFilterToAlbums = 1
+script.albumview.GalleryTest.testSwitchGalleryToCamera = 1
+script.albumview.GalleryTest.testAlbumSocialSync = 1
+script.albumview.GalleryTest.testSearchAlbum = 1
+script.albumview.GalleryTest.testEnterSocialGallerySettings = 1
+script.albumview.GalleryTest.testTurnOffOnUpdateNotification = 1
+script.albumview.GalleryTest.testSortByName = 1
+script.albumview.GalleryTest.testSortByRecentAscending = 1
+script.albumview.GalleryTest.testCheckAlbumDetail = 1
+script.albumview.GalleryTest.testAddKeywordsToAlbum = 1
+script.albumview.GalleryTest.testShareAlbumViaPicasa = 1
+script.albumview.GalleryTest.testShareAlbumViaGmail = 1
+script.albumview.GalleryTest.testShareAlbumViaDrive = 1
+script.albumview.GalleryTest.testShareAlbumViaYouTube = 1
+script.albumview.GalleryTest.testShareAlbumViaFacebook = 1
+script.albumview.GalleryTest.testShareAlbumViaBluetooth = 1
+script.albumview.GalleryTest.testDeleteAlbum = 1
+script.albumview.GalleryTest.testCancelDeleteAlbum = 1
+script.albumview.GalleryTest.testCancelDeleteAllAlbum = 1
+script.albumview.GalleryTest.testSelectDeselectAllAlbums = 1
+script.albumview.GalleryTest.testAlbumsViewSwitchtoCameraRoll = 1
+script.albumview.GalleryTest.testAlbumsViewSwitchtoMedia = 1
+
+
+
+
+
+
+
+
+
+
