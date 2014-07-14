@@ -316,7 +316,8 @@ class GalleryTest(unittest.TestCase):
         # Step 3
         u.holdTheCenter()
         # Step 4 + Step 5
-        u.deleteItem('Delete')
+        u.setMenuOptions('Delete')
+        d(text = 'Delete').click.wait()
         time.sleep(3)
         # confirm picture deleted.
         result = commands.getoutput('adb shell ls -l /sdcard/testalbum/testpictures2 | grep jpg | wc -l')
@@ -342,7 +343,8 @@ class GalleryTest(unittest.TestCase):
         d.click(1000,800)
         # Step 5 + Step 6
         d(className = 'android.widget.ImageButton').click.wait()
-        u.deleteItem('Delete')
+        u.setMenuOptions('Delete')
+        d(text = 'Delete').click.wait()
         # confirm picture deleted.
         time.sleep(2)
         result = commands.getoutput('adb shell ls -l /sdcard/testalbum/testpictures2 | grep jpg | wc -l')
@@ -425,7 +427,7 @@ class GalleryTest(unittest.TestCase):
             d(text = 'com.intel.android.gallery3d').click()
             d(text = 'Always').click()
         d(text = 'Crop').click()
-        result = commands.getoutput('adb shell ls -l /sdcard/testalbum/testpictures2 | grep jpg | wc -l')
+        result = commands.getoutput('adb shell ls -l /sdcard/testalbum/testpictures1 | grep jpg | wc -l')
         if string.atoi(result) != 21:
             raise Exception('crop failed!')
 
