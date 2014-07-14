@@ -49,7 +49,7 @@ class GalleryTest(unittest.TestCase):
         3.Tap upnavigation icon
         """
         # Step 3
-        d(text = 'testpictures2').click()
+        d(text = 'testpictures1').click()
         # confirm back to album view
         assert d(text = 'Albums').wait.exists(timeout = 2000),'switch to Album view failed!'
 
@@ -348,7 +348,7 @@ class GalleryTest(unittest.TestCase):
         # confirm picture deleted.
         time.sleep(2)
         result = commands.getoutput('adb shell ls -l /sdcard/testalbum/testpictures2 | grep jpg | wc -l')
-        if string.atoi(result) != 17:
+        if string.atoi(result) != 18:
             raise Exception('delete failed!')
 
     # Testcase 17
