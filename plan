@@ -108,7 +108,6 @@ script.burstview.GalleryTest.testMenuKeyOfConvert = 1
 script.burstview.GalleryTest.testAddVenue = 1
 script.burstview.GalleryTest.testAddEvent = 1
 script.burstview.GalleryTest.testAddKeyword = 1
-script.burstview.GalleryTest.testCheckDetails = 1
 script.burstview.GalleryTest.testSmallPlayBurstIconOfDissolveInEditView = 1
 script.burstview.GalleryTest.testSmallPlayBurstIconOfFlashInEditView = 1
 script.burstview.GalleryTest.testSmallPlayBurstIconOfPageflipInEditView = 1

@@ -19,7 +19,7 @@ online  = os.getcwd() + '/script/' #File path for running cases on line  *
 offline = sys.path[0]              #File path for run offline            #
                                                                          #
 #Just change this value to modify the file path                          *
-PATH = online
+PATH = offline
                                                                          #
 #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 

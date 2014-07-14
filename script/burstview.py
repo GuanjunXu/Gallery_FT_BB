@@ -34,9 +34,7 @@ class GalleryTest(unittest.TestCase):
         u._checkBurstResource()
         u.launchGallery()
         u.enterXView('fullview')
-        u.showPopCard()  
-
-   
+        u.showPopCard()
 
     def tearDown(self):
         super(GalleryTest,self).tearDown()
@@ -201,18 +199,6 @@ class GalleryTest(unittest.TestCase):
         self._addKeyWordEventVenue('Keyword',"test123")
         time.sleep(1)   
         assert d(text = 'test123').wait.exists(timeout =2000),'add tag fail'  
-
-# Test case 12
-    def testCheckDetails(self):
-        """
-        Summary:This case test rotate left burst pictures by menu key in burst view.
-        Precondition: There are burst pictures in sdcard
-        Steps:
-          1. Launch Intel gallery and enter to burst view
-          2. Tap menu -> Details
-        """ 
-        self._burstMenuOption('Details')
-        assert d(resourceId='com.intel.android.gallery3d:id/facebook_icon').wait.exists(timeout =2000),'verify detail fail' 
 
 # Test case 13
     def testSmallPlayBurstIconOfDissolveInEditView(self):
