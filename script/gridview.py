@@ -320,7 +320,7 @@ class GalleryTest(unittest.TestCase):
         d(text = 'Delete').click.wait()
         time.sleep(3)
         # confirm picture deleted.
-        result = commands.getoutput('adb shell ls -l /sdcard/testalbum/testpictures2 | grep jpg | wc -l')
+        result = commands.getoutput('adb shell ls -l /sdcard/testalbum/testpictures1 | grep jpg | wc -l')
         if string.atoi(result) != 19:
             raise Exception('delete failed!')
 
@@ -347,7 +347,7 @@ class GalleryTest(unittest.TestCase):
         d(text = 'Delete').click.wait()
         # confirm picture deleted.
         time.sleep(2)
-        result = commands.getoutput('adb shell ls -l /sdcard/testalbum/testpictures2 | grep jpg | wc -l')
+        result = commands.getoutput('adb shell ls -l /sdcard/testalbum/testpictures1 | grep jpg | wc -l')
         if string.atoi(result) != 18:
             raise Exception('delete failed!')
 
