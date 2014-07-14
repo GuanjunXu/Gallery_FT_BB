@@ -488,7 +488,7 @@ class GalleryTest(unittest.TestCase):
         # Step 4 + Step 5
         u.setMenuOptions('Details')
         # confirm enter details
-        assert d(text = 'Keywords').wait.exists(timeout = 2000)
+        assert d(text = 'Close').wait.exists(timeout = 2000)
 
     # Testcase 24
     def testAddKeywordsInGridView(self):
