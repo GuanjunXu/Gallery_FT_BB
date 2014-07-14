@@ -471,6 +471,7 @@ class GalleryTest(unittest.TestCase):
         # Step 6
         self._setpictureas('Wallpaper')
         d(text = 'Crop').click()
+        time.sleep(3)
         # confirm back to gallery
         assert d(description = 'More options').wait.exists(timeout = 2000)
 
