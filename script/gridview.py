@@ -527,7 +527,6 @@ class GalleryTest(unittest.TestCase):
         # Step 3 + Step 4
         u.holdTheCenter()
         d.click(700,800)
-        d.click(1000,800)
         # Step 4 + Step 500
         u.setMenuOptions('Animate')
         # Step 6 + Step 7
