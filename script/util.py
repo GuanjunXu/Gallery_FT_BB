@@ -9,6 +9,7 @@ import string
 import random
 import math
 import os
+import subprocess
 
 PACKAGE_NAME = 'com.intel.android.gallery3d'
 ACTIVITY_NAME = PACKAGE_NAME + '/.app.Gallery'
@@ -32,7 +33,8 @@ class Util():
         pass
 
     def launchGallery(self):
-        d.start_activity(component = ACTIVITY_NAME)
+        #d.start_activity(component = ACTIVITY_NAME)
+        subprocess.Popen('adb shell am start -n '+ACTIVITY_NAME, stdout=subprocess.PIPE, shell=True)
         if d(text = 'Camera Roll').wait.exists(timeout = 3000):
             d(text = 'Camera Roll').click.wait()
             d(text = 'Albums').click.wait()
