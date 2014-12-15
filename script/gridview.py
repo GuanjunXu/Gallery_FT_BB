@@ -20,9 +20,9 @@ class GalleryTest(unittest.TestCase):
         super(GalleryTest,self).setUp()
         # clear test resource
         #self.util = util.Util
-        #u._clearAllResource()
+        u._clearAllResource()
         # push test pics.
-        #u._confirmResourceExists()
+        u._confirmResourceExists()
         # launch gallery
         u.launchGallery()
         # enter grid view
