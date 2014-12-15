@@ -36,7 +36,7 @@ class Util():
         #d.start_activity(component = ACTIVITY_NAME)
         subprocess.Popen('adb shell am start -n '+ACTIVITY_NAME, stdout=subprocess.PIPE, shell=True)
         time.sleep(3)
-        if d(text = 'Camera Roll').wait.exists(timeout = 3000):
+        if d(text='Camera Roll').wait.exists(timeout=3000):
             d(text = 'Camera Roll').click.wait()
             d(text = 'Albums').click.wait()
         time.sleep(1) #Switch filter may take a few seconds
