@@ -32,6 +32,13 @@ class Util():
     def __init__(self):
         pass
 
+    def unlockScreen(self):
+        if d(resourceId = 'com.android.keyguard:id/keyguard_selector_view_frame').wait.exists(timeout = 1000):
+            lockWindowBounds = d(resourceId = 'com.android.keyguard:id/keyguard_selector_view_frame').info.get('bounds')
+            startPoint_x = (lockWindowBounds['right']+lockWindowBounds['left'])/2
+            startPoint_y = (lockWindowBounds['bottom']+lockWindowBounds['top'])/2
+            d.swipe(startPoint_x,startPoint_y,lockWindowBounds['right'],startPoint_y)
+
     def launchGallery(self):
         #d.start_activity(component = ACTIVITY_NAME)
         subprocess.Popen('adb shell am start -n '+ACTIVITY_NAME, stdout=subprocess.PIPE, shell=True)
@@ -61,6 +68,11 @@ class Util():
 
     def showPopCard(self):
         d.click(self.getSizeOfGallery()[4], self.getSizeOfGallery()[0] + 1)
+        d(description = 'More options').click.wait()
+        if d(text = 'View photonotes').wait.exists(timeout = 2000):
+            d(text = 'View photonotes').click.wait()
+        else:
+            d.press('back')
         time.sleep(1)
 
     def holdTheCenter(self):
@@ -121,8 +133,11 @@ class Util():
             raise Exception('Please sign your account in')
 
     def setMenuOptions(self,setoption = None):
-        d(description = 'More options').click.wait()
-        d(text = setoption).click.wait()
+        if setoption == 'Slideshow':
+            d(resourceId = 'com.intel.android.gallery3d:id/action_slideshow').click.wait()
+        else:
+            d(description = 'More options').click.wait()
+            d(text = setoption).click.wait()
         if d(text = 'Choose an action').wait.exists(timeout = 2000):
             d(text = 'com.intel.android.gallery3d').click.wait()
 

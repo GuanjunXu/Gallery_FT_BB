@@ -22,7 +22,8 @@ class GalleryTest(unittest.TestCase):
             commands.getoutput('adb root')
             time.sleep(5)
             commands.getoutput('adb remount')
-            d.swipe(530,1300,1000,1300)
+            #d.swipe(530,1300,1000,1300)
+            u.unlockScreen()
         u._clearAllResource()
         u._prepareVideo()
         u.launchGallery()
@@ -51,7 +52,7 @@ class GalleryTest(unittest.TestCase):
             try:
                 assert d(text = 'Always', enabled = 'true').wait.exists(timeout = 2000)
             except:
-                d(text = 'com.intel.android.gallery3d').click.wait()
+                d(text = 'Video player').click.wait()
             finally:
                 d(text = 'Always').click.wait()
         time.sleep(10) #Play video file 10 s

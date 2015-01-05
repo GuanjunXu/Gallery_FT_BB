@@ -18,6 +18,7 @@ class GalleryTest(unittest.TestCase):
 
     def setUp(self):
         super(GalleryTest,self).setUp()
+        u.unlockScreen()
         # clear test resource
         #self.util = util.Util
         u._clearAllResource()

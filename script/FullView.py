@@ -14,6 +14,7 @@ class GalleryTest(unittest.TestCase):
 
     def setUp(self):
         super(GalleryTest,self).setUp()
+        u.unlockScreen()
         u._clearAllResource()
         u._confirmResourceExists()
         u.launchGallery()

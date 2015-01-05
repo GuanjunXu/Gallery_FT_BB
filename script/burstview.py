@@ -30,6 +30,7 @@ ACTIVITY_NAME = PACKAGE_NAME + '.app.Gallery'
 class GalleryTest(unittest.TestCase):
     def setUp(self):
         super(GalleryTest,self).setUp()
+        u.unlockScreen()
         u._clearAllResource()
         u._checkBurstResource()
         u.launchGallery()

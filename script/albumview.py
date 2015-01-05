@@ -14,6 +14,7 @@ class GalleryTest(unittest.TestCase):
 
     def setUp(self):
         super(GalleryTest,self).setUp()
+        u.unlockScreen()
         u._clearAllResource()
         u._confirmResourceExists()
         u.launchGallery()
@@ -118,11 +119,13 @@ class GalleryTest(unittest.TestCase):
         d(description = 'Switch to camera').click.wait(timeout = 2000)
         # If exists the first time of switch camera selection, click social camera and click always.
         if d(text = 'Complete action using').wait.exists(timeout = 2000):
-            d(text = 'com.intel.camera22').click.wait()
+            d(text = 'Camera').click.wait()
             d(text = 'Always').click.wait()
         # confirm switch to camera.
-        if d(text = 'OK').wait.exists(timeout = 2000):
-            d(text = 'OK').click.wait()
+        if d(text = 'No thanks').wait.exists(timeout = 2000):
+            d(text = 'Yes').click.wait()
+        if d(text = 'Skip').wait.exists(timeout = 2000):
+            d(text = 'Skip').click.wait()
         assert d(description = 'com.intel.camera22:id/shutter_button').wait.exists
 
     # Testcase 7
