@@ -115,6 +115,7 @@ class GalleryTest(unittest.TestCase):
         3. Exit Camera app
         4. Exit SocialGallery app
         """
+        u.selectFilter('Albums')
         # Step 2
         d(description = 'Switch to camera').click.wait(timeout = 2000)
         # If exists the first time of switch camera selection, click social camera and click always.
@@ -139,7 +140,7 @@ class GalleryTest(unittest.TestCase):
         """
         # Step 2
         u.setMenuOptions('Social Sync')
-        assert d(description = 'Switch to camera').wait.exists(timeout = 2000)
+        assert d(description = 'Facebook').wait.exists(timeout = 2000)
 
     # Testcase 8
     def testSearchAlbum(self):
@@ -224,10 +225,10 @@ class GalleryTest(unittest.TestCase):
         else:
             d.press('menu')
         u.setMenuOptions('Sort by name, A-Z')
-        assert d(description = 'Switch to camera').wait.exists
+        #assert d(description = 'Switch to camera').wait.exists
         # step 4 + step 5
         u.setMenuOptions('Sort by name, Z-A')
-        assert d(description = 'Switch to camera').wait.exists
+        #assert d(description = 'Switch to camera').wait.exists
 
     # Testcase 12
     def testSortByRecentAscending(self):
@@ -248,10 +249,10 @@ class GalleryTest(unittest.TestCase):
             d.press('menu')
         # Step 2 + Step 3
         u.setMenuOptions('Sort by recent, ascending')
-        assert d(description = 'Switch to camera').wait.exists
+        #assert d(description = 'Switch to camera').wait.exists
         # step 4 + step 5
         u.setMenuOptions('Sort by recent, descending')
-        assert d(description = 'Switch to camera').wait.exists
+        #assert d(description = 'Switch to camera').wait.exists
 
     # Testcase 13
     def testCheckAlbumDetail(self):
@@ -504,7 +505,7 @@ class GalleryTest(unittest.TestCase):
         u.setMenuOptions('Select all')
         # Step 5
         u.setMenuOptions('Deselect all')
-        assert d(description = 'Switch to camera').wait.exists(timeout = 2000)
+        #assert d(description = 'Switch to camera').wait.exists(timeout = 2000)
 
     # Testcase 27 - add on May 26th
     def testAlbumsViewSwitchtoCameraRoll(self):

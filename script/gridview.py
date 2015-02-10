@@ -94,7 +94,7 @@ class GalleryTest(unittest.TestCase):
         time.sleep(3)
         # Since automation can't check this point, if it back to gridview treat it as pass.
         u.pressBack(1)
-        assert d(description = 'Switch to camera').wait.exists(timeout = 2000)
+        assert d(description = 'com.intel.android.gallery3d:id/action_slideshow').wait.exists(timeout = 2000)
 
     # Testcase 4
     def testPlaySlideshowWithDissolve(self):
@@ -113,7 +113,7 @@ class GalleryTest(unittest.TestCase):
         time.sleep(3)
         # Since automation can't check this point, if it back to gridview treat it as pass.
         u.pressBack(1)
-        assert d(description = 'Switch to camera').wait.exists(timeout = 2000)
+        assert d(description = 'com.intel.android.gallery3d:id/action_slideshow').wait.exists(timeout = 2000)
 
     # Testcase 5
     def testPlaySlideshowWithFlash(self):
@@ -132,7 +132,7 @@ class GalleryTest(unittest.TestCase):
         time.sleep(3)
         # Since automation can't check this point, if it back to gridview treat it as pass.
         u.pressBack(1)
-        assert d(description = 'Switch to camera').wait.exists(timeout = 2000)
+        assert d(description = 'com.intel.android.gallery3d:id/action_slideshow').wait.exists(timeout = 2000)
 
     # Testcase 6
     def testShareIconAvilibaleInGridView(self):
@@ -569,7 +569,7 @@ class GalleryTest(unittest.TestCase):
         d(text = 'Select all').click()
         u.setMenuOptions('Rotate right')
         # confirm back to gallery
-        assert d(description = 'Switch to camera').wait.exists(timeout = 2000)
+        assert d(description = 'com.intel.android.gallery3d:id/action_slideshow').wait.exists(timeout = 2000)
 
     # Testcase 27
     def testAddKeywordsToAllInGridView(self):
@@ -721,7 +721,7 @@ class GalleryTest(unittest.TestCase):
         d(className = 'android.widget.ImageButton').click.wait()
         d(text = 'Deselect all').click()
         # Since automation can't check this point, if it back to gridview treat it as pass.
-        assert d(description = 'Switch to camera').wait.exists(timeout = 2000)        
+        assert d(description = 'com.intel.android.gallery3d:id/action_slideshow').wait.exists(timeout = 2000)        
 
     def _setpictureas(self,option):
         if option == 'Wallpaper':
