@@ -70,6 +70,8 @@ class GalleryTest(unittest.TestCase):
         u.setMenuOptions('Add keyword')
         d(text="Enter new keyword").set_text("New Keyword")
         d.click(2358,1090) # click 'done' icon on the keyboard.
+        time.sleep(1)
+        u.pressBack(4)
         # Step 3
         d(description = 'Search').click()
         # Step 4
