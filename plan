@@ -1,5 +1,5 @@
 [tests]
-script.gridview.GalleryTest.testGridViewSwitchtoAlbumsView = 1
+#script.gridview.GalleryTest.testGridViewSwitchtoAlbumsView = 1
 script.gridview.GalleryTest.testSearchKeywordsInGridView = 1
 script.gridview.GalleryTest.testPlaySlideshowWithCineEffect = 1
 script.gridview.GalleryTest.testPlaySlideshowWithDissolve = 1
