@@ -67,7 +67,7 @@ class GalleryTest(unittest.TestCase):
         """
         # before searching, a keyword is needed. this step is used to add keyword.
         u.holdTheCenter()
-        u.setMenuOptions('Add a keyword')
+        u.setMenuOptions('Add keyword')
         d(text="Enter new keyword").set_text("New Keyword")
         d.click(2358,1090) # click 'done' icon on the keyboard.
         # Step 3
