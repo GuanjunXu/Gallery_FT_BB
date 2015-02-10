@@ -71,7 +71,7 @@ class GalleryTest(unittest.TestCase):
         d(text="Enter new keyword").set_text("New Keyword")
         d.click(2358,1090) # click 'done' icon on the keyboard.
         time.sleep(1)
-        u.pressBack(4)
+        u.pressBack(1)
         # Step 3
         d(description = 'Search').click()
         # Step 4
