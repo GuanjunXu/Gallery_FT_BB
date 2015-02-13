@@ -319,7 +319,9 @@ class GalleryTest(unittest.TestCase):
         # Step 3
         u.holdTheCenter()
         # Step 4 + Step 5
-        u.setMenuOptions('Delete')
+        #u.setMenuOptions('Delete')
+        d(resourceId = 'com.intel.android.gallery3d:id/action_delete').click.wait()
+        time.sleep(3)
         d(text = 'Delete').click.wait()
         time.sleep(3)
         # confirm picture deleted.
