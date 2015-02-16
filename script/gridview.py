@@ -341,14 +341,12 @@ class GalleryTest(unittest.TestCase):
         5.Tap Trash icon
         6.Tap Delete option
         """
-        # Step 3
         u.holdTheCenter()
         # Step 4
         d.click(700,800)
         d.click(1000,800)
         # Step 5 + Step 6
-        d(className = 'android.widget.ImageButton').click.wait()
-        u.setMenuOptions('Delete')
+        d(resourceId = 'com.intel.android.gallery3d:id/action_delete').click.wait()
         d(text = 'Delete').click.wait()
         # confirm picture deleted.
         time.sleep(2)
