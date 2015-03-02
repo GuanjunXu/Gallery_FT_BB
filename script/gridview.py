@@ -70,14 +70,12 @@ class GalleryTest(unittest.TestCase):
         u.setMenuOptions('Add keyword')
         d(text="Enter new keyword").set_text("New Keyword")
         d.click(2358,1090) # click 'done' icon on the keyboard.
-        time.sleep(1)
-        u.pressBack(1)
         # Step 3
         d(description = 'Search').click()
         # Step 4
         d(resourceId = 'com.intel.android.gallery3d:id/search_src_text').set_text('New Keyword')
         # confirm searched item
-        assert d(text = 'New Keyword (1)').wait.exists(timeout = 2000)
+        assert d(text = 'New Keyword').wait.exists(timeout = 2000)
 
     # Testcase 3
     def testPlaySlideshowWithCineEffect(self):
@@ -89,6 +87,7 @@ class GalleryTest(unittest.TestCase):
         3.Tap play slideshow icon
         4.Tap Cine Effect option 
         """
+        u.enterXView('gridview')
         # Step 3
         u.setMenuOptions('Slideshow')
         # Step 4
@@ -96,7 +95,7 @@ class GalleryTest(unittest.TestCase):
         time.sleep(3)
         # Since automation can't check this point, if it back to gridview treat it as pass.
         u.pressBack(1)
-        assert d(description = 'com.intel.android.gallery3d:id/action_slideshow').wait.exists(timeout = 2000)
+        assert d(description = 'Slideshow').wait.exists(timeout = 2000)
 
     # Testcase 4
     def testPlaySlideshowWithDissolve(self):
@@ -108,6 +107,7 @@ class GalleryTest(unittest.TestCase):
         3.Tap play slideshow icon
         4.Tap Dissolve option 
         """
+        u.enterXView('gridview')
         # Step 3
         u.setMenuOptions('Slideshow')
         # Step 4
@@ -115,7 +115,7 @@ class GalleryTest(unittest.TestCase):
         time.sleep(3)
         # Since automation can't check this point, if it back to gridview treat it as pass.
         u.pressBack(1)
-        assert d(description = 'com.intel.android.gallery3d:id/action_slideshow').wait.exists(timeout = 2000)
+        assert d(description = 'Slideshow').wait.exists(timeout = 2000)
 
     # Testcase 5
     def testPlaySlideshowWithFlash(self):
@@ -127,6 +127,7 @@ class GalleryTest(unittest.TestCase):
         3.Tap play slideshow icon
         4.Tap Flash option 
         """
+        u.enterXView('gridview')
         # Step 3
         u.setMenuOptions('Slideshow')
         # Step 4
@@ -134,7 +135,7 @@ class GalleryTest(unittest.TestCase):
         time.sleep(3)
         # Since automation can't check this point, if it back to gridview treat it as pass.
         u.pressBack(1)
-        assert d(description = 'com.intel.android.gallery3d:id/action_slideshow').wait.exists(timeout = 2000)
+        assert d(description = 'Slideshow').wait.exists(timeout = 2000)
 
     # Testcase 6
     def testShareIconAvilibaleInGridView(self):
@@ -167,7 +168,7 @@ class GalleryTest(unittest.TestCase):
         # Step 4 + Step 5 
         u.shareItem('Bluetooth')
         # confirm enter Bluetooth
-        assert d(text = 'Bluetooth device chooser').wait.exists(timeout = 2000)
+        assert d(text = 'Choose Bluetooth device').wait.exists(timeout = 2000)
 
     # Testcase 8
     def testSharePictureInGridViewWithPicasa(self):
@@ -177,14 +178,14 @@ class GalleryTest(unittest.TestCase):
         3.Long touch a pic or a video to select
         4.Tap share icon
         5.Tap Picasa option
-        """
+        
         # Step 3
         u.holdTheCenter()
         # Step 4 + Step 5 
         u.shareItem('Picasa')
         # confirm enter Picasa
         assert d(text = 'Upload photo/video').wait.exists(timeout = 2000)
-
+        """
     # Testcase 9
     def testSharePictureInGridViewWithMessaging(self):
         """
@@ -247,14 +248,14 @@ class GalleryTest(unittest.TestCase):
         3.Long touch a pic or a video to select
         4.Tap share icon
         5.Tap Gmail option
-        """
+        
         # Step 3
         u.holdTheCenter()
         # Step 4 + Step 5 
         u.shareItem('Gmail')
         # confirm enter Gmail
-        assert d(text = 'Compose').wait.exists(timeout = 2000)
-
+        assert d(text = 'Welcome to Gmail').wait.exists(timeout = 2000)
+        """
     # Testcase 12
     def testSharePictureInGridViewWithFacebook(self):
         """
@@ -263,14 +264,14 @@ class GalleryTest(unittest.TestCase):
         3.Long touch a pic or a video to select
         4.Tap share icon
         5.Tap Facebook option
-        """
+        
         # Step 3
         u.holdTheCenter()
         # Step 4 + Step 5 
         u.shareItem('Facebook')
         # confirm enter Gmail
         assert d(text = 'Loading...').wait.exists(timeout = 2000)
-
+        """
     # Testcase 13
     def testSharePictureInGridViewWithYouTube(self):
         """
@@ -279,7 +280,7 @@ class GalleryTest(unittest.TestCase):
         3.Long touch a pic or a video to select
         4.Tap share icon
         5.Tap YouTube option
-        """
+        
         u._prepareVideo()
         time.sleep(2)
         # Step 3
@@ -288,7 +289,7 @@ class GalleryTest(unittest.TestCase):
         u.shareItem('YouTube')
         # confirm enter YouTube
         assert d(text = 'Choose an account').wait.exists(timeout = 2000)
-
+        """
     # Testcase 14
     def testSharePictureInGridViewWithDrive(self):
         """
@@ -297,14 +298,14 @@ class GalleryTest(unittest.TestCase):
         3.Long touch a pic or a video to select
         4.Tap share icon
         5.Tap Drive option
-        """
+        
         # Step 3
         u.holdTheCenter()
         # Step 4 + Step 5
         u.shareItem('Drive')
         # confirm enter Drive
         assert d(text = 'Upload to Drive').wait.exists(timeout = 2000)
-
+        """
     # Testcase 15
     def testDeleteOnePictureInGridView(self):
         """
@@ -319,7 +320,8 @@ class GalleryTest(unittest.TestCase):
         # Step 3
         u.holdTheCenter()
         # Step 4 + Step 5
-        u.setMenuOptions('Delete')
+        #u.setMenuOptions('Delete')
+        d(resourceId = 'com.intel.android.gallery3d:id/action_delete').click.wait()
         d(text = 'Delete').click.wait()
         time.sleep(3)
         # confirm picture deleted.
@@ -343,10 +345,9 @@ class GalleryTest(unittest.TestCase):
         u.holdTheCenter()
         # Step 4
         d.click(700,800)
-        d.click(1000,800)
+        #d.click(1000,800)
         # Step 5 + Step 6
-        d(className = 'android.widget.ImageButton').click.wait()
-        u.setMenuOptions('Delete')
+        d(resourceId = 'com.intel.android.gallery3d:id/action_delete').click.wait()
         d(text = 'Delete').click.wait()
         # confirm picture deleted.
         time.sleep(2)
@@ -571,7 +572,7 @@ class GalleryTest(unittest.TestCase):
         d(text = 'Select all').click()
         u.setMenuOptions('Rotate right')
         # confirm back to gallery
-        assert d(description = 'com.intel.android.gallery3d:id/action_slideshow').wait.exists(timeout = 2000)
+        assert d(description = 'Slideshow').wait.exists(timeout = 2000)
 
     # Testcase 27
     def testAddKeywordsToAllInGridView(self):
@@ -723,7 +724,7 @@ class GalleryTest(unittest.TestCase):
         d(className = 'android.widget.ImageButton').click.wait()
         d(text = 'Deselect all').click()
         # Since automation can't check this point, if it back to gridview treat it as pass.
-        assert d(description = 'com.intel.android.gallery3d:id/action_slideshow').wait.exists(timeout = 2000)        
+        assert d(description = 'Slideshow').wait.exists(timeout = 2000)        
 
     def _setpictureas(self,option):
         if option == 'Wallpaper':
