@@ -8,7 +8,8 @@ import commands
 import string
 import util
 
-u = util.Util()
+u  = util.Util()
+so = util.SetOption()
 
 class GalleryTest(unittest.TestCase):
 
@@ -36,10 +37,10 @@ class GalleryTest(unittest.TestCase):
                      2.Click setting menu
                      3.Touch edit
         '''
-        d(resourceId = 'com.intel.android.gallery3d:id/action_edit').click.wait()
+        d(resourceId = 'com.intel.android.gallery3d:id/action_edit_localimages').click.wait()
         if d(text = 'Choose an action').wait.exists():
             d(text = 'com.intel.android.gallery3d').click.wait()
-        assert d(description = 'SAVE').wait.exists(timeout = 2000)
+        assert d(description = 'Save').wait.exists(timeout = 2000)
 
     def testEditWithToneNone(self):
         '''
@@ -51,8 +52,8 @@ class GalleryTest(unittest.TestCase):
                      5.Touch none mode
                      6.Touch save
         '''
-        self._editImage('fx',1)
-        assert d(text = 'SAVE').wait.gone(timeout = 2000)
+        so.setListViewOption('fx',1)
+        assert d(text = 'Save').wait.gone(timeout = 2000)
 
     def testEditWithTonePunch(self):
         '''
@@ -64,7 +65,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch punch mode
                      6.Touch save
         '''
-        self._editImage('fx',2)
+        so.setListViewOption('fx',2)
 
     def testEditWithToneVintage(self):
         '''
@@ -76,7 +77,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch vintage mode
                      6.Touch save
         '''
-        self._editImage('fx',3)
+        so.setListViewOption('fx',3)
 
     def testEditWithToneBW(self):
         '''
@@ -88,7 +89,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch B/W mode
                      6.Touch save
         '''
-        self._editImage('fx',4)
+        so.setListViewOption('fx',4)
 
     def testEditWithToneBleach(self):
         '''
@@ -100,7 +101,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch bleach mode
                      6.Touch save
         '''
-        self._editImage('fx',5)
+        so.setListViewOption('fx',5)
 
     def testEditWithToneInstant(self):
         '''
@@ -112,7 +113,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch instant mode
                      6.Touch save
         '''
-        self._editImage('fx',6)
+        so.setListViewOption('fx',6)
 
     def testEditWithToneLatte(self):
         '''
@@ -124,7 +125,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch latte mode
                      6.Touch save
         '''
-        self._editImage('fx',7)
+        so.setListViewOption('fx',7)
 
     def testEditWithToneBlue(self):
         '''
@@ -136,7 +137,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch blue mode
                      6.Touch save
         '''
-        self._editImage('fx',8)
+        so.setListViewOption('fx',8)
 
     def testEditWithToneLitho(self):
         '''
@@ -148,7 +149,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch litho mode
                      6.Touch save
         '''
-        self._editImage('fx',9)
+        so.setListViewOption('fx',9)
 
     def testEditWithToneXProcess(self):
         '''
@@ -160,7 +161,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch X-Process mode
                      6.Touch save
         '''
-        self._editImage('fx',10)
+        so.setListViewOption('fx',10)
 
     def testEditWithFrame1(self):
         '''
@@ -172,8 +173,8 @@ class GalleryTest(unittest.TestCase):
                      5.Touch the first style
                      6.Touch save
         '''
-        self._editImage('border',1)
-        assert d(text = 'SAVE').wait.gone(timeout = 2000)
+        so.setListViewOption('border',1)
+        assert d(text = 'Save').wait.gone(timeout = 2000)
 
     def testEditWithFrame2(self):
         '''
@@ -185,7 +186,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch the second style
                      6.Touch save
         '''
-        self._editImage('border',2)
+        so.setListViewOption('border',2)
 
     def testEditWithFrame3(self):
         '''
@@ -197,7 +198,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch the third style
                      6.Touch save
         '''
-        self._editImage('border',3)
+        so.setListViewOption('border',3)
 
     def testEditWithFrame4(self):
         '''
@@ -209,7 +210,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch the forth style
                      6.Touch save
         '''
-        self._editImage('border',4)
+        so.setListViewOption('border',4)
 
     def testEditWithFrame5(self):
         '''
@@ -221,7 +222,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch the fifth style
                      6.Touch save
         '''
-        self._editImage('border',5)
+        so.setListViewOption('border',5)
 
     def testEditWithFrame6(self):
         '''
@@ -233,7 +234,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch the sixth style
                      6.Touch save
         '''
-        self._editImage('border',6)
+        so.setListViewOption('border',6)
 
     def testEditWithFrame7(self):
         '''
@@ -245,7 +246,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch the seventh style
                      6.Touch save
         '''
-        self._editImage('border',6)
+        so.setListViewOption('border',7)
 
     def testEnterCropScreen(self):
         '''
@@ -255,11 +256,11 @@ class GalleryTest(unittest.TestCase):
                      3.Touch edit
                      4.Touch Crop icon
         '''
-        d(resourceId = 'com.intel.android.gallery3d:id/action_edit').click.wait()
+        d(resourceId = 'com.intel.android.gallery3d:id/action_edit_localimages').click.wait()
         if d(text = 'Choose an action').wait.exists():
             d(text = 'com.intel.android.gallery3d').click.wait()
         d(resourceId = 'com.intel.android.gallery3d:id/geometryButton').click.wait()
-        assert d(resourceId = 'com.intel.android.gallery3d:id/straightenButton').wait.exists(timeout = 2000)
+        assert d(text = 'Straighten').wait.exists(timeout = 2000)
 
     def testEditWithCropStraighten(self):
         '''
@@ -272,7 +273,7 @@ class GalleryTest(unittest.TestCase):
                      6.Apply one positive straightening adjustment
                      7.Touch save
         '''
-        self._editImage('geometry','straighten')
+        so.setListViewOption('geometry','straighten')
 
     def testEditWithCropWith1ratio1(self):
         '''
@@ -284,7 +285,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Crop mode and select 1:1 option
                      6.Touch save
         '''
-        self._editImage('geometry','crop','1:1')
+        so.setListViewOption('geometry','crop','1:1')
 
     def testEditWithCropWith1ratio2(self):
         '''
@@ -296,7 +297,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Crop mode and select 4:3 option
                      6.Touch save
         '''
-        self._editImage('geometry','crop','4:3')
+        so.setListViewOption('geometry','crop','4:3')
 
     def testEditWithCropWith1ratio3(self):
         '''
@@ -308,7 +309,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Crop mode and select 3:4 option
                      6.Touch save
         '''
-        self._editImage('geometry','crop','3:4')
+        so.setListViewOption('geometry','crop','3:4')
 
     def testEditWithCropWith1ratio4(self):
         '''
@@ -320,7 +321,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Crop mode and select 5:7 option
                      6.Touch save
         '''
-        self._editImage('geometry','crop','5:7')
+        so.setListViewOption('geometry','crop','5:7')
 
     def testEditWithCropWith1ratio5(self):
         '''
@@ -332,7 +333,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Crop mode and select 7:5 option
                      6.Touch save
         '''
-        self._editImage('geometry','crop','7:5')
+        so.setListViewOption('geometry','crop','7:5')
 
     def testEditWithCropWith1ratio6(self):
         '''
@@ -344,7 +345,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Crop mode and select None option
                      6.Touch save
         '''
-        self._editImage('geometry','crop','None')
+        so.setListViewOption('geometry','crop','None')
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithCropWith1ratio7(self):
@@ -357,7 +358,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Crop mode and select Original option
                      6.Touch save
         '''
-        self._editImage('geometry','crop','Original')
+        so.setListViewOption('geometry','crop','Original')
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithCropWithRotate(self):
@@ -371,7 +372,7 @@ class GalleryTest(unittest.TestCase):
                      6.Drag screen from right to left  one time and Apply rotate 
                      7.Touch Save Icon
         '''
-        self._editImage('geometry','rotate')
+        so.setListViewOption('geometry','rotate')
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithCropWithMirror(self):
@@ -385,7 +386,7 @@ class GalleryTest(unittest.TestCase):
                      6.Drag screen from right to left  one time and Apply rotate 
                      7.Touch Save Icon
         '''
-        self._editImage('geometry','flip')
+        so.setListViewOption('geometry','flip')
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithBrightnessWithAutocolor(self):
@@ -398,7 +399,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Autocolor mode
                      6.Apply and save it
         '''
-        self._editImage('colors',1)
+        so.setListViewOption('colors',1)
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithBrightnessWithExposure(self):
@@ -411,7 +412,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Exposure mode
                      6.Apply and save it
         '''
-        self._editImage('colors',2)
+        so.setListViewOption('colors',2)
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithBrightnessWithVignette(self):
@@ -424,7 +425,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Vignette mode
                      6.Apply and save it
         '''
-        self._editImage('colors',3)
+        so.setListViewOption('colors',3)
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithBrightnessWithContrast(self):
@@ -437,7 +438,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Contrast mode
                      6.Apply and save it
         '''
-        self._editImage('colors',4)
+        so.setListViewOption('colors',4)
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithBrightnessWithShadows(self):
@@ -450,7 +451,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Shadows mode
                      6.Apply and save it
         '''
-        self._editImage('colors',5)
+        so.setListViewOption('colors',5)
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithBrightnessWithVibrance(self):
@@ -463,7 +464,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Vibrance mode
                      6.Apply and save it
         '''
-        self._editImage('colors',6)
+        so.setListViewOption('colors',6)
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithBrightnessWithSharpness(self):
@@ -476,7 +477,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Sharpness mode
                      6.Apply and save it
         '''
-        self._editImage('colors',7)
+        so.setListViewOption('colors',7)
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithBrightnessWithCurves(self):
@@ -489,7 +490,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Curves mode
                      6.Apply and save it
         '''
-        self._editImage('colors',8)
+        so.setListViewOption('colors',8)
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithBrightnessWithHue(self):
@@ -502,7 +503,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Hue mode
                      6.Apply and save it
         '''
-        self._editImage('colors',9)
+        so.setListViewOption('colors',9)
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithBrightnessWithSaturation(self):
@@ -515,7 +516,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch Saturation mode
                      6.Apply and save it
         '''
-        self._editImage('colors',10)
+        so.setListViewOption('colors',10)
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithBrightnessWithBWFilter(self):
@@ -528,7 +529,7 @@ class GalleryTest(unittest.TestCase):
                      5.Touch B/WFilter mode
                      6.Apply and save it
         '''
-        self._editImage('colors',11)
+        so.setListViewOption('colors',11)
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithTonePunchRedoAndUndo(self):
@@ -545,7 +546,7 @@ class GalleryTest(unittest.TestCase):
                      9.Touch redo
                      10.Touch Save
         '''
-        d(resourceId = 'com.intel.android.gallery3d:id/action_edit').click.wait()
+        d(resourceId = 'com.intel.android.gallery3d:id/action_edit_localimages').click.wait()
         if d(text = 'Choose an action').wait.exists():
             d(text = 'com.intel.android.gallery3d').click.wait()
         #Tap on punch option
@@ -553,7 +554,7 @@ class GalleryTest(unittest.TestCase):
         d(description = 'Undo').click.wait()
         d(description = 'Redo').click.wait()
         #Save the changed image
-        d(description = 'SAVE').click.wait()
+        d(description = 'Save').click.wait()
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithTonePunchReset(self):
@@ -568,14 +569,14 @@ class GalleryTest(unittest.TestCase):
                      7.Touch Reset
                      8.Touch Save
         '''
-        d(resourceId = 'com.intel.android.gallery3d:id/action_edit').click.wait()
+        d(resourceId = 'com.intel.android.gallery3d:id/action_edit_localimages').click.wait()
         if d(text = 'Choose an action').wait.exists():
             d(text = 'com.intel.android.gallery3d').click.wait()
         #Tap on punch option
         d(index = 1, className = 'android.view.View').click.wait()
         u.setMenuOptions('Reset')
         #Save the changed image
-        d(description = 'SAVE').click.wait()
+        d(description = 'Save').click.wait()
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
     def testEditWithTonePunchShowHistory(self):
@@ -590,111 +591,14 @@ class GalleryTest(unittest.TestCase):
                      7.Touch Show History
                      8.Touch Save
         '''
-        d(resourceId = 'com.intel.android.gallery3d:id/action_edit').click.wait()
+        d(resourceId = 'com.intel.android.gallery3d:id/action_edit_localimages').click.wait()
         if d(text = 'Choose an action').wait.exists():
             d(text = 'com.intel.android.gallery3d').click.wait()
         #Tap on punch option
         d(index = 1, className = 'android.view.View').click.wait()
-        u.setMenuOptions('Show history')
-        assert d(text = 'History').wait.exists(timeout = 2000)
+        u.setMenuOptions('Show Applied Effects')
+        assert d(resourceId = 'com.intel.media.DepthFilter:id/toggleVersionsPanel').wait.exists(timeout = 2000)
         #Save the changed image
-        d(description = 'SAVE').click.wait()
+        d(description = 'Save').click.wait()
         assert d(description = 'Share').wait.exists(timeout = 2000)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    def _getSubSize(self):
-        subbounds = d(resourceId = 'com.intel.android.gallery3d:id/secondRowPanel').info.get('bounds')
-        top       = subbounds['top']
-        bottom    = subbounds['bottom']
-        right     = subbounds['right']
-        suby      = (top + bottom)/2
-        return right, suby
-
-    def _editImage(self,bottombutton,suboption,cropscale=None):
-        '''
-            You need just know the NO. of the wanted option, e.g.:
-                you want to set an image as 'Hue' in 'Colors',
-
-                -> _editImage('colors',9)
-
-                *Hue is NO.9 in the option list
-                *An exception, if you set something in geometry(3rd button on the bottom), you may use func like:
-
-                -> _editImage('geometry','crop')
-
-                *You could just use the string shows on screen
-
-            Comparison Table:
-
-                NO.| bottombutton | suboption            | cropscale
-            -------+--------------+----------------------+---------------------
-                1. | fx           | int 1 ~ 10           |
-                2. | border       | int 1 ~ 7            |
-                3. | geometry     | str straighten       |
-                   |              |     crop             | str 1:1
-                   |              |                      |     4:3
-                   |              |                      |     3:4
-                   |              |                      |     5:7
-                   |              |                      |     7:5
-                   |              |                      |     None
-                   |              |                      |     Original
-                   |              |     rotate           |
-                   |              |     flip (*'Mirror') |
-                4. | colors       | int 1 ~ 11           |
-            -------+--------------+----------------------+---------------------
-
-        '''
-        d(resourceId = 'com.intel.android.gallery3d:id/action_edit').click.wait()
-        if d(text = 'Choose an action').wait.exists():
-            d(text = 'com.intel.android.gallery3d').click.wait()
-        #Click bottom button
-        d(resourceId = 'com.intel.android.gallery3d:id/%sButton'%bottombutton).click.wait()
-        if bottombutton == 'geometry':
-            d(resourceId = 'com.intel.android.gallery3d:id/%sButton'%suboption).click.wait()
-        else:
-            if suboption < 10:
-                d()[24 + suboption].click.wait()
-            elif suboption == 11:
-                d.swipe(self._getSubSize()[0]-1, self._getSubSize()[1], 0, self._getSubSize()[1], 5)
-                d(index = suboption-1,focusable = 'false',clickable = 'true').click.wait()
-            else:
-                d.swipe(self._getSubSize()[0]-1, self._getSubSize()[1], 0, self._getSubSize()[1])
-                d(index = suboption-1,focusable = 'false',clickable = 'true').click.wait()
-        #When croping image, there are some expend options
-        if cropscale != None:
-            d(resourceId = 'com.intel.android.gallery3d:id/aspect').click.wait()
-            d(text = cropscale).click.wait()
-        #Some effect may need user's applying
-        if d(text = 'Apply').wait.exists(timeout = 2000):
-            d(text = 'Apply').click.wait()
-        #Save the changed image
-        d(description = 'SAVE').click.wait()
-        
-    def _editAndCheckIamgesCount(self,bottombutton,suboption,cropscale=None):
-        beforeNo = commands.getoutput('adb shell ls -l /sdcard/testalbum/testpictures2 | grep JPG | wc -l')
-        #print beforeNo
-        self._editImage(bottombutton,suboption,cropscale)
-        time.sleep(5) #Saving action may take a few seconds
-        afterNo  = commands.getoutput('adb shell ls -l /sdcard/testalbum/testpictures2 | grep JPG | wc -l')
-        #print afterNo
-        if string.atoi(afterNo) - string.atoi(beforeNo) == 0:
-            self.fail('New image has not been created after editing')

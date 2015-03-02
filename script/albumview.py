@@ -14,7 +14,6 @@ class GalleryTest(unittest.TestCase):
 
     def setUp(self):
         super(GalleryTest,self).setUp()
-        u.unlockScreen()
         u._clearAllResource()
         u._confirmResourceExists()
         u.launchGallery()
@@ -115,18 +114,16 @@ class GalleryTest(unittest.TestCase):
         3. Exit Camera app
         4. Exit SocialGallery app
         """
-        u.selectFilter('Albums')
         # Step 2
         d(description = 'Switch to camera').click.wait(timeout = 2000)
         # If exists the first time of switch camera selection, click social camera and click always.
         if d(text = 'Complete action using').wait.exists(timeout = 2000):
+            #d(text = 'com.intel.camera22').click.wait()                                # YY
             d(text = 'Camera').click.wait()
             d(text = 'Always').click.wait()
         # confirm switch to camera.
-        if d(text = 'No thanks').wait.exists(timeout = 2000):
-            d(text = 'Yes').click.wait()
-        if d(text = 'Skip').wait.exists(timeout = 2000):
-            d(text = 'Skip').click.wait()
+        if d(text = 'OK').wait.exists(timeout = 2000):
+            d(text = 'OK').click.wait()
         assert d(description = 'com.intel.camera22:id/shutter_button').wait.exists
 
     # Testcase 7
@@ -140,7 +137,7 @@ class GalleryTest(unittest.TestCase):
         """
         # Step 2
         u.setMenuOptions('Social Sync')
-        assert d(description = 'Facebook').wait.exists(timeout = 2000)
+        assert d(description = 'Switch to camera').wait.exists(timeout = 2000)
 
     # Testcase 8
     def testSearchAlbum(self):
@@ -154,7 +151,7 @@ class GalleryTest(unittest.TestCase):
         """
         # Before Searching, a keyword is needed.
         u.holdTheCenter()
-        u.setMenuOptions('Add a keyword')
+        u.setMenuOptions('Add keyword')                                               #YY
         d(text = "Enter new keyword").set_text("New Keyword")
         u.clickDoneButton()
         # Step 2
@@ -225,10 +222,10 @@ class GalleryTest(unittest.TestCase):
         else:
             d.press('menu')
         u.setMenuOptions('Sort by name, A-Z')
-        #assert d(description = 'Switch to camera').wait.exists
+        assert d(description = 'Switch to camera').wait.exists
         # step 4 + step 5
         u.setMenuOptions('Sort by name, Z-A')
-        #assert d(description = 'Switch to camera').wait.exists
+        assert d(description = 'Switch to camera').wait.exists
 
     # Testcase 12
     def testSortByRecentAscending(self):
@@ -249,10 +246,10 @@ class GalleryTest(unittest.TestCase):
             d.press('menu')
         # Step 2 + Step 3
         u.setMenuOptions('Sort by recent, ascending')
-        #assert d(description = 'Switch to camera').wait.exists
+        assert d(description = 'Switch to camera').wait.exists
         # step 4 + step 5
         u.setMenuOptions('Sort by recent, descending')
-        #assert d(description = 'Switch to camera').wait.exists
+        assert d(description = 'Switch to camera').wait.exists
 
     # Testcase 13
     def testCheckAlbumDetail(self):
@@ -288,18 +285,18 @@ class GalleryTest(unittest.TestCase):
         # Step 2 
         u.holdTheCenter()
         # Step 3 + Step 4
-        u.setMenuOptions('Add a keyword')
+        u.setMenuOptions('Add keyword')                                          #YY
         # Step 5
         d(text = "Enter new keyword").set_text("New Keyword")
         # Step 6
         u.clickDoneButton()
         # confirm add keywords
         u.holdTheCenter()
-        u.setMenuOptions('Add a keyword')
+        u.setMenuOptions('Add keyword')                                          #YY
         assert d(text = 'New Keyword').wait.exists(timeout = 2000)
 
     # Testcase 17
-    def testShareAlbumViaPicasa(self):
+    def testShareAlbumViaPicasa(self):                                          #YY mei you picasa
         """
         Summary: Share album via Picasa
         Steps: 
@@ -336,7 +333,7 @@ class GalleryTest(unittest.TestCase):
         # Step 3 + Step 4 + Step 5
         u.shareItem('Gmail')
         # confirm enter Gamil
-        assert d(text = 'Subject').wait.exists(timeout = 2000)
+        assert d(text = 'Welcome to Gmail').wait.exists(timeout = 2000)                    #YY
 
     # Testcase 19
     def testShareAlbumViaDrive(self):
@@ -356,10 +353,10 @@ class GalleryTest(unittest.TestCase):
         # Step 3 + Step 4 + Step 5
         u.shareItem('Drive')
         # confirm enter Driver
-        assert d(text = 'Upload to Drive').wait.exists(timeout = 2000)
+        assert d(text = 'Upload to Drive').wait.exists(timeout = 2000)                   #YY- xuyao lian wang 
 
     # Testcase 20
-    def testShareAlbumViaYouTube(self):
+    def testShareAlbumViaYouTube(self):                                                  #YY- mei you YouTube
         """
         Summary: Share album via YouTube
         Steps: 
@@ -381,7 +378,7 @@ class GalleryTest(unittest.TestCase):
         assert d(text = 'Choose an account').wait.exists(timeout = 2000)
 
     # Testcase 21
-    def testShareAlbumViaFacebook(self):
+    def testShareAlbumViaFacebook(self):                                                #YY- xuyao lian wang
         """
         Summary: Share album via Facebook
         Steps: 
@@ -420,7 +417,7 @@ class GalleryTest(unittest.TestCase):
         if d(text = 'Turn on').wait.exists(timeout = 2000):
             d(text = 'Turn on').click.wait()
         # confirm enter Bluetooth
-        assert d(text = 'Bluetooth device chooser').wait.exists(timeout = 3000)
+        assert d(text = 'Choose Bluetooth device').wait.exists(timeout = 3000)                    #YY
 
     # Testcase 23
     def testDeleteAlbum(self):
@@ -505,7 +502,7 @@ class GalleryTest(unittest.TestCase):
         u.setMenuOptions('Select all')
         # Step 5
         u.setMenuOptions('Deselect all')
-        #assert d(description = 'Switch to camera').wait.exists(timeout = 2000)
+        assert d(description = 'Switch to camera').wait.exists(timeout = 2000)
 
     # Testcase 27 - add on May 26th
     def testAlbumsViewSwitchtoCameraRoll(self):
@@ -536,4 +533,8 @@ class GalleryTest(unittest.TestCase):
         u.selectFilter('Media')
         # confirm switch to Places
         assert d(text = 'Media').wait.exists(timeout = 2000),'switch to Media failed!'
+
+
+if __name__ =='__main__':  
+    unittest.main() 
 

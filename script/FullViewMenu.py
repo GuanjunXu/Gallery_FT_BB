@@ -96,7 +96,7 @@ class GalleryTest(unittest.TestCase):
                      2.Add event in settings bar
         '''
         u.slideDown()
-        d(resourceId = 'com.intel.android.gallery3d:id/event_edit').click.wait()
+        d(resourceId = 'com.intel.android.gallery3d:id/event_text').click.wait()
         d(text = 'Enter new event').click.wait() #Make sure keyboard has been invoked
         d(text = 'Enter new event').set_text('NewEvent')
         u.clickDoneButton()
@@ -109,10 +109,10 @@ class GalleryTest(unittest.TestCase):
                      2.Add venue in settings bar
         '''
         u.slideDown()
-        d(resourceId = 'com.intel.android.gallery3d:id/venue_edit').click.wait()
+        d(resourceId = 'com.intel.android.gallery3d:id/venue_text').click.wait()
         d(text = 'Enter new venue').click.wait() #Make sure keyboard has been invoked
         d(text = 'Enter new venue').set_text('NewVenue')
-        self._tapOnDoneButton()
+        u.clickDoneButton()
         assert d(text = 'NewVenue',resourceId = 'com.intel.android.gallery3d:id/venue_text').wait.exists(timeout = 2000)
 
     def testSetPicAsContact(self):
@@ -124,7 +124,7 @@ class GalleryTest(unittest.TestCase):
                      4.Click Contact photo
         '''
         self._setPicAs('contact')
-        assert d(text = 'Find contacts').wait.exists(timeout = 2000)
+        assert d(text = 'Choose a contact').wait.exists(timeout = 2000)
 
     def testSetPicAsWallpaper(self):
         '''
@@ -138,6 +138,7 @@ class GalleryTest(unittest.TestCase):
         #Set default action for croping picture
         if d(text = 'Complete action using').wait.exists(timeout = 2000):
             try:
+                d(text = 'Crop picture').click.wait()
                 assert d(text = 'Always', enabled = 'true').wait.exists(timeout = 2000)
             except:
                 d(text = 'com.intel.android.gallery3d').click.wait()
@@ -160,6 +161,7 @@ class GalleryTest(unittest.TestCase):
         #Set default action for croping picture
         if d(text = 'Complete action using').wait.exists(timeout = 2000):
             try:
+                d(text = 'Crop picture').click.wait()
                 assert d(text = 'Always', enabled = 'true').wait.exists(timeout = 2000)
             except:
                 d(text = 'com.intel.android.gallery3d').click.wait()
@@ -173,12 +175,5 @@ class GalleryTest(unittest.TestCase):
     def _setPicAs(self,setact):
         d.press('menu')
         d(text = 'Set picture as').click.wait()
-        setmode = {'contact':'Contact photo', 'wallpaper':'com.intel.android.gallery3d'}
+        setmode = {'contact':'Contact photo', 'wallpaper':'Wallpaper'}
         d(text = setmode[setact]).click.wait()
-
-
-
-
-
-
-    

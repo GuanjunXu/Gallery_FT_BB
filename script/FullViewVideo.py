@@ -18,7 +18,7 @@ class GalleryTest(unittest.TestCase):
     def setUp(self):
         super(GalleryTest,self).setUp()
         #Add on May 26th due to device always reboot by itself
-        if d(text = 'Charged').wait.exists(timeout = 2000):
+        if d(text = 'Charging').wait.exists(timeout = 2000):
             commands.getoutput('adb root')
             time.sleep(5)
             commands.getoutput('adb remount')
@@ -47,8 +47,9 @@ class GalleryTest(unittest.TestCase):
                      4.Touch screen any point twice and pause this video
                      5. Exit socialgallery 
         '''
+        u.tapOnCenter()
         u.tapOnCenter() #Press playback icon
-        if d(text = 'Complete action using').wait.exists(timeout = 2000):
+        if d(text = 'Open with').wait.exists(timeout = 2000):
             try:
                 assert d(text = 'Always', enabled = 'true').wait.exists(timeout = 2000)
             except:
@@ -59,7 +60,7 @@ class GalleryTest(unittest.TestCase):
         d.click(550,150) #Invoke pop card
         d.click(550,150) #Invoke pop card
         assert d(description = 'Share').wait.exists(timeout = 5000)
-        u.tapOnCenter() #Pause the video playback
+        #u.tapOnCenter() #Pause the video playback
         assert d(resourceId = 'com.intel.android.gallery3d:id/background_play_action_provider_button').wait.exists(timeout = 2000)
 
     def testShareVideoToYouTube(self):

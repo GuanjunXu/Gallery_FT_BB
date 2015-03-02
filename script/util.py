@@ -26,6 +26,21 @@ PATH = online
 #View mode list, just use their index in the list
 ViewModeList = ['albumview', 'gridview', 'fullview']
 
+##########################################################################
+#SetOption properties
+fxList       = ['None','Punch','Vintage','B/W','Bleach','Instant','Latte','Blue','Litho','X Process']
+borderList   = ['None','4x5','Brush','Grunge','Sumi E','Tape','Black','Black R','White','White R','Cream','Cream R']
+geometryList = {'straighten':'Straighten',
+                'crop':'Crop',
+                'rotate':'Rotate',
+                'flip':'Mirror'}
+colorsList   = ['Autocolor','Exposure','Vignette','Contrast','Shadows','Vibrance','Sharpness','Curves','Hue','Saturation','BW Filter','Negative','Edges','Posterize'] #'Graduated','Highlights',
+editList     = {'fx':fxList,
+                'border':borderList,
+                'geometry':geometryList,
+                'colors':colorsList}
+##########################################################################
+
 class Util():
 
     def __init__(self):
@@ -286,3 +301,87 @@ class Util():
     def _getPictureNoInAndro(self):
         no = commands.getoutput('adb shell ls -l /mnt/sdcard/DCIM/100ANDRO/ | wc -l')
         return no
+
+class SetOption():
+    '''
+    listViewID = 'com.intel.media.DepthFilter:id/listItems'
+    '''
+    def _getListOrdinate(self):
+        listbounds = d(resourceId = 'com.intel.media.DepthFilter:id/listItems').info.get('bounds')
+        listy = (listbounds['top'] + listbounds['bottom'])/2
+        listx = (listbounds['right'] + listbounds['left'])/2
+        return listx, listy, listbounds['top'], listbounds['bottom']
+
+    def _slideListViewUp(self):
+        x   = self._getListOrdinate()[0]
+        y_1 = self._getListOrdinate()[1]
+        y_2 = self._getListOrdinate()[2]
+        d.swipe(x, y_1, x, y_2)
+        time.sleep(2)
+        
+    def _slideListViewDown(self):
+        x   = self._getListOrdinate()[0]
+        y_1 = self._getListOrdinate()[1]
+        y_2 = self._getListOrdinate()[3]
+        d.swipe(x, y_1, x, y_2)
+        time.sleep(2)
+
+
+    def setListViewOption(self,bottombutton,suboption,cropscale=None):
+        '''
+            You need just know the NO. of the wanted option, e.g.:
+                you want to set an image as 'Hue' in 'Colors',
+
+                -> _editImage('colors',9)
+
+                *Hue is NO.9 in the option list
+                *An exception, if you set something in geometry(3rd button on the bottom), you may use func like:
+
+                -> _editImage('geometry','crop')
+
+                *You could just use the string shows on screen
+
+            Comparison Table:
+
+                NO.| bottombutton | suboption            | cropscale
+            -------+--------------+----------------------+---------------------
+                1. | fx           | int 1 ~ 10           |
+                2. | border       | int 1 ~ 7            |
+                3. | geometry     | str straighten       |
+                   |              |     crop             | str 1:1
+                   |              |                      |     4:3
+                   |              |                      |     3:4
+                   |              |                      |     5:7
+                   |              |                      |     7:5
+                   |              |                      |     None
+                   |              |                      |     Original
+                   |              |     rotate           |
+                   |              |     flip (*'Mirror') |
+                4. | colors       | int 1 ~ 11           |
+            -------+--------------+----------------------+---------------------
+        '''
+        d(resourceId = 'com.intel.android.gallery3d:id/action_edit_localimages').click.wait()
+        if d(text = 'Choose an action').wait.exists():
+            d(text = 'com.intel.android.gallery3d').click.wait()
+        #Click bottom button
+        d(resourceId = 'com.intel.media.DepthFilter:id/%sButton'%bottombutton).click.wait()
+        if bottombutton == 'geometry':
+            d(description = editList[bottombutton][suboption]).click.wait()
+        else:
+            slideTimes = 0
+            while not d(description = editList[bottombutton][suboption-1]).wait.exists(timeout = 2000):
+                self._slideListViewUp()
+                slideTimes = slideTimes+1
+                if slideTimes>=20:
+                    break
+            assert d(description = editList[bottombutton][suboption-1]).wait.exists(timeout = 2000)
+            d(description = editList[bottombutton][suboption-1]).click.wait()
+        #When croping image, there are some expend options
+        if cropscale != None:
+            d(resourceId = 'com.intel.media.DepthFilter:id/applyEffect').click.wait()
+            d(text = cropscale).click.wait()
+        #Some effect may need user's applying
+        if d(resourceId = 'com.intel.media.DepthFilter:id/applyFilter').wait.exists(timeout = 2000):
+            d(resourceId = 'com.intel.media.DepthFilter:id/applyFilter').click.wait()
+        #Save the changed image
+        d(description = 'Save').click.wait()
