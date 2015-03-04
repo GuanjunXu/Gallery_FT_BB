@@ -109,7 +109,7 @@ class Util():
     def slideUp(self):
         homesize = d(resourceId = 'android:id/action_bar').info.get('bounds')
         bottom      = homesize['bottom']
-        d.swipe(self.getSizeOfGallery()[4], self.getSizeOfGallery()[1], self.getSizeOfGallery()[4], bottom+1)
+        d.swipe(self.getSizeOfGallery()[4], self.getSizeOfGallery()[5], self.getSizeOfGallery()[4], bottom+1)
 
     def getMenuSize(self):
         menubounds = d(className = 'android.widget.FrameLayout').info.get('bounds')
