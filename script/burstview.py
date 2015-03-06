@@ -573,7 +573,7 @@ class GalleryTest(unittest.TestCase):
         time.sleep(1)
         d(resourceId = 'com.intel.android.gallery3d:id/selection_menu').click.wait()
         d(text = 'Select all').click.wait()
-        d(className = 'android.widget.TextView').click.wait()
+        d(description = 'Slideshow').click.wait()
         d(text = status).click.wait()
         time.sleep(10) 
    
