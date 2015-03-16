@@ -58,6 +58,7 @@ class Util():
         if d(text = 'Camera Roll').wait.exists(timeout = 3000):
             d(text = 'Camera Roll').click.wait()
             d(text = 'Albums').click.wait()
+            self.setMenuOptions('Sort by name, A-Z')
         time.sleep(1) #Switch filter may take a few seconds
 
     def selectFilter(self,galleryfilter):
