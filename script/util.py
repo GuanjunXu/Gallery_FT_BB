@@ -150,7 +150,8 @@ class Util():
             d(resourceId = 'com.intel.android.gallery3d:id/action_slideshow').click.wait()
         else:
             d(description = 'More options').click.wait()
-            d(text = setoption).click.wait()
+            if d(text = setoption).wait.exists(timeout = 1000):
+                d(text = setoption).click.wait()
         if d(text = 'Choose an action').wait.exists(timeout = 2000):
             d(text = 'com.intel.android.gallery3d').click.wait()
 
