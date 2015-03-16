@@ -158,6 +158,8 @@ class GalleryTest(unittest.TestCase):
     # Testcase 7
     def testSharePictureInGridViewWithBluetooth(self):
         """
+        Summary:Share Picture to Bluetooth
+        Step:
         1.Launch gallery activity 
         2.Enter Grid view
         3.Long touch a pic or a video to select
@@ -174,6 +176,8 @@ class GalleryTest(unittest.TestCase):
     # Testcase 8
     def testSharePictureInGridViewWithPicasa(self):
         """
+        Summary:Share Picture to Picasa
+        Step:
         1.Launch gallery activity 
         2.Enter Grid view
         3.Long touch a pic or a video to select
@@ -190,6 +194,8 @@ class GalleryTest(unittest.TestCase):
     # Testcase 9
     def testSharePictureInGridViewWithMessaging(self):
         """
+        Summary:Share Picture to Messaging
+        Step:
         1.Launch gallery activity 
         2.Enter Grid view
         3.Long touch a pic or a video to select
@@ -208,6 +214,8 @@ class GalleryTest(unittest.TestCase):
     # Testcase 9
     def testSharePictureInGridViewWithOrkut(self):
         """
+        Summary:Share Picture to Orkut
+        Step:
         1.Launch gallery activity 
         2.Enter Grid view
         3.Long touch a pic or a video to select
@@ -224,6 +232,8 @@ class GalleryTest(unittest.TestCase):
     # Testcase 10
     def testSharePictureInGridViewWithGooglePlus(self):
         """
+        Summary:Share Picture to Google Plus
+        Step:
         1.Launch gallery activity 
         2.Enter Grid view
         3.Long touch a pic or a video to select
@@ -244,6 +254,8 @@ class GalleryTest(unittest.TestCase):
     # Testcase 11
     def testSharePictureInGridViewWithGmail(self):
         """
+        Summary:Share Picture to Gmail
+        Step:
         1.Launch gallery activity 
         2.Enter Grid view
         3.Long touch a pic or a video to select
@@ -260,6 +272,8 @@ class GalleryTest(unittest.TestCase):
     # Testcase 12
     def testSharePictureInGridViewWithFacebook(self):
         """
+        Summary:Share Picture to Facebook
+        Step:
         1.Launch gallery activity 
         2.Enter Grid view
         3.Long touch a pic or a video to select
@@ -276,6 +290,8 @@ class GalleryTest(unittest.TestCase):
     # Testcase 13
     def testSharePictureInGridViewWithYouTube(self):
         """
+        Summary:Share Picture to YouTube
+        Step:
         1.Launch gallery activity 
         2.Enter Grid view
         3.Long touch a pic or a video to select
@@ -294,6 +310,8 @@ class GalleryTest(unittest.TestCase):
     # Testcase 14
     def testSharePictureInGridViewWithDrive(self):
         """
+        Summary:Share Picture to Drive
+        Step:
         1.Launch gallery activity 
         2.Enter Grid view
         3.Long touch a pic or a video to select
