@@ -66,6 +66,7 @@ class GalleryTest(unittest.TestCase):
         5.Touch the searched pics 
         """
         # before searching, a keyword is needed. this step is used to add keyword.
+        u.pressBack(1)
         u.holdTheCenter()
         u.setMenuOptions('Add keyword')
         d(text="Enter new keyword").set_text("New Keyword")
@@ -87,7 +88,7 @@ class GalleryTest(unittest.TestCase):
         3.Tap play slideshow icon
         4.Tap Cine Effect option 
         """
-        u.enterXView('gridview')
+        #u.enterXView('gridview')
         # Step 3
         u.setMenuOptions('Slideshow')
         # Step 4
@@ -107,7 +108,7 @@ class GalleryTest(unittest.TestCase):
         3.Tap play slideshow icon
         4.Tap Dissolve option 
         """
-        u.enterXView('gridview')
+        #u.enterXView('gridview')
         # Step 3
         u.setMenuOptions('Slideshow')
         # Step 4
@@ -127,7 +128,7 @@ class GalleryTest(unittest.TestCase):
         3.Tap play slideshow icon
         4.Tap Flash option 
         """
-        u.enterXView('gridview')
+        #u.enterXView('gridview')
         # Step 3
         u.setMenuOptions('Slideshow')
         # Step 4
