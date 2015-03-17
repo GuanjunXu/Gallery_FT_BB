@@ -518,8 +518,9 @@ class GalleryTest(unittest.TestCase):
              4.Exit social gallery app
         """ 
         d(resourceId = 'com.intel.android.gallery3d:id/action_edit_burst').click.wait()
+        time.sleep(2)
         self._selectPictueWhenEditBurst(3)
-        assert d(text = '3 selected').wait.exists(timeout =3000),'tap mark fail'        
+        assert d(text = '3 items selected').wait.exists(timeout =3000),'tap mark fail'        
 
 
 
@@ -583,9 +584,9 @@ class GalleryTest(unittest.TestCase):
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
     def _selectPictueWhenEditBurst(self,status):
-        x=150+(status-1)*125
+        x=300
         for i in range(status):
-            d.click(i*x,350)
+            d.click(i*x+150,300)
 
 
     def _pressBack(self,touchtimes):
