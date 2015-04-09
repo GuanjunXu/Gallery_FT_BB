@@ -390,9 +390,11 @@ class GalleryTest(unittest.TestCase):
         # Step 4 + Step 5
         u.setMenuOptions('Edit')
         # select social gallery to edit.
+        if d(text = 'Edit with').wait.exists():
+            d(text = 'Selective Filter').click.wait()
         #d(text = 'com.intel.android.gallery3d').click()
         # confirm enter gallery editer.
-        assert d(resourceId = 'com.intel.android.gallery3d:id/fxButton').wait.exists(timeout = 2000)
+        assert d(resourceId = 'com.intel.media.DepthFilter:id/fxButton').wait.exists(timeout = 2000)
 
     # Testcase 18
     def testRotateLeftInGridView(self):
@@ -410,6 +412,7 @@ class GalleryTest(unittest.TestCase):
         # Step 5
         u.setMenuOptions('Rotate left')
         # since rotation point could not be checked, if it back to grid view, we treat it as pass.
+        u.pressBack(1)
         assert d(description = 'Switch to camera').wait.exists(timeout = 2000)
 
     # Testcase 19
@@ -428,6 +431,7 @@ class GalleryTest(unittest.TestCase):
         # Step 5
         u.setMenuOptions('Rotate right')
         # since rotation point could not be checked, if it back to grid view, we treat it as pass.
+        u.pressBack(1)
         assert d(description = 'Switch to camera').wait.exists(timeout = 2000)
 
     # Testcase 20
@@ -447,7 +451,7 @@ class GalleryTest(unittest.TestCase):
         # Step 5
         u.setMenuOptions('Crop')
         if  d(text = 'Complete action using').exists:
-            d(text = 'com.intel.android.gallery3d').click()
+            d(text = 'Crop picture').click()
             d(text = 'Always').click()
         d(text = 'Crop').click()
         result = commands.getoutput('adb shell ls -l /sdcard/testalbum/testpictures1 | grep jpg | wc -l')
@@ -531,7 +535,7 @@ class GalleryTest(unittest.TestCase):
         # Step 3
         u.holdTheCenter()
         # Step 4 + Step 5
-        u.setMenuOptions('Add a keyword')
+        u.setMenuOptions('Add keyword')
         # Step 6 + Step 7
         d(text="Enter new keyword").set_text("New Keyword")
         d.click(650,1130) # click 'done' icon on the keyboard.
@@ -614,7 +618,7 @@ class GalleryTest(unittest.TestCase):
         d(className = 'android.widget.ImageButton').click.wait()
         d(text = 'Select all').click()
         # Step 6 + Step 7
-        u.setMenuOptions('Add a keyword')
+        u.setMenuOptions('Add keyword')
         # Step 8
         d(text="Enter new keyword").set_text("New Keyword")
         d.click(2358,1090) # click 'done' icon on the keyboard.
@@ -622,7 +626,7 @@ class GalleryTest(unittest.TestCase):
         u.holdTheCenter()
         d(className = 'android.widget.ImageButton').click.wait()
         d(text = 'Select all').click()       
-        u.setMenuOptions('Add a keyword')
+        u.setMenuOptions('Add keyword')
         assert d(text = 'New Keyword').exists
 
     # Testcase 28
@@ -650,7 +654,7 @@ class GalleryTest(unittest.TestCase):
         d(text = slideshow_option).click()
         time.sleep(3)
         # Since automation can't check this point, if it back to gridview treat it as pass.
-        u.pressBack(1)
+        u.pressBack(2)
         assert d(description = 'Switch to camera').wait.exists(timeout = 2000)
 
     # Testcase 29
@@ -678,9 +682,7 @@ class GalleryTest(unittest.TestCase):
         u.setMenuOptions('Animate')
         d(text = 'Video').click()
         d(text = 'Create').click()
-        while not d(text = 'Save').wait.exists(timeout=2000):
-            time.sleep(1)
-        time.sleep(2)
+        time.sleep(10)
         d(text = 'Save').click.wait()
         time.sleep(2)
         # confirm create complete
@@ -746,7 +748,9 @@ class GalleryTest(unittest.TestCase):
         assert d(description = 'Slideshow').wait.exists(timeout = 2000)        
 
     def _setpictureas(self,option):
+        '''
         if option == 'Wallpaper':
             d(text = 'com.intel.android.gallery3d').click()
         else:
+        '''
             d(text = option).click()
