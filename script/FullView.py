@@ -58,7 +58,7 @@ class GalleryTest(unittest.TestCase):
         u.shareItem('Bluetooth')
         if d(text = 'Turn on').wait.exists(timeout = 2000):
             d(text = 'Turn on').click.wait()
-        assert d(text = 'Bluetooth device chooser').wait.exists(timeout = 2000)
+        assert d(text = 'Choose Bluetooth device').wait.exists(timeout = 2000)
 
     def testSharePictureToPicasa(self):
         '''
@@ -88,7 +88,7 @@ class GalleryTest(unittest.TestCase):
                      3.Click Gmail icon
         '''
         u.shareItem('Gmail')
-        assert d(text = 'Subject').wait.exists(timeout = 2000)
+        assert d(text = 'Welcome to Gmail').wait.exists(timeout = 2000)
 
     def testSharePictureToDrive(self):
         '''
