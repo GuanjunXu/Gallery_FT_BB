@@ -476,13 +476,13 @@ class GalleryTest(unittest.TestCase):
         """
         d(resourceId = 'com.intel.android.gallery3d:id/action_edit_burst').click.wait()
         time.sleep(1)        
-        d(text ='0 selected').click.wait()
+        d(text ='0 items selected').click.wait()
         d(text = 'Select all').click.wait()
         time.sleep(1)
         d(resourceId ='com.intel.android.gallery3d:id/selection_menu').click.wait()        
         d(text = 'Deselect all').click.wait()
         time.sleep(1)
-        assert d(text = '0 selected').wait.exists(timeout=1000),'Deselect fail'
+        assert d(text = '0 items selected').wait.exists(timeout=1000),'Deselect fail'
 
  # Test case 27       
     def testMarkUnmarkBurstPicsInEditView(self):
