@@ -192,15 +192,20 @@ class GalleryTest(unittest.TestCase):
         # Step 2 + Step 3
         u.setMenuOptions('Settings')
         # step 4
-        d(text = 'Update Notification').click()
-        result = commands.getoutput('adb shell cat data/data/com.intel.android.gallery3d/shared_prefs/SocialGallery2.0_Pref.xml | grep background_fr_notification')
-        if result.find('false') == -1:
+        result = d(resourceId = 'android:id/switchWidget').info.get('text')
+        d(text = result).click()
+        #d(text = 'Update Notification').click()
+        #result = commands.getoutput('adb shell cat data/data/com.intel.android.gallery3d/shared_prefs/SocialGallery2.0_Pref.xml | grep background_fr_notification')
+        #if result.find('false') == -1:
+        if result == d(resourceId = 'android:id/switchWidget').info.get('text'):
             raise Exception ('turn Update Notification failed')
+        result = d(resourceId = 'android:id/switchWidget').info.get('text')
         # step 5
-        d(text = 'Update Notification').click()
+        d(text = result).click()
         time.sleep(2)
-        result = commands.getoutput('adb shell cat data/data/com.intel.android.gallery3d/shared_prefs/SocialGallery2.0_Pref.xml| grep background_fr_notification')
-        if result.find('true') == -1:
+        #result = commands.getoutput('adb shell cat data/data/com.intel.android.gallery3d/shared_prefs/SocialGallery2.0_Pref.xml| grep background_fr_notification')
+        #if result.find('true') == -1:
+        if result == d(resourceId = 'android:id/switchWidget').info.get('text'):
             self.fail('turn Update Notification failed')
 
     # Testcase 11
