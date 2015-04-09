@@ -259,7 +259,7 @@ class GalleryTest(unittest.TestCase):
         d(resourceId = 'com.intel.android.gallery3d:id/action_edit_localimages').click.wait()
         if d(text = 'Choose an action').wait.exists():
             d(text = 'com.intel.android.gallery3d').click.wait()
-        d(resourceId = 'com.intel.android.gallery3d:id/geometryButton').click.wait()
+        d(resourceId = 'com.intel.media.DepthFilter:id/geometryButton').click.wait()
         assert d(text = 'Straighten').wait.exists(timeout = 2000)
 
     def testEditWithCropStraighten(self):
