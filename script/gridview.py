@@ -753,4 +753,4 @@ class GalleryTest(unittest.TestCase):
             d(text = 'com.intel.android.gallery3d').click()
         else:
         '''
-            d(text = option).click()
+        d(text = option).click()
